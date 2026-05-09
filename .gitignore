@@ -1,0 +1,47 @@
+# ==============================================
+# Android 标准忽略文件
+# ==============================================
+# 编译生成的文件
+*.apk
+*.ap_
+*.aab
+*.aar
+*.jar
+*.dex
+*.class
+
+# 构建目录
+bin/
+gen/
+out/
+build/
+.gradle/
+.cxx/
+.externalNativeBuild/
+
+# Gradle 配置文件
+gradle/
+gradlew
+gradlew.bat
+local.properties
+gradle.properties
+
+# IDE 配置文件
+.idea/
+*.iml
+*.iws
+*.ipr
+.navigation/
+.captures/
+
+# 签名文件（绝对不能提交到公开仓库！）
+*.jks
+*.keystore
+*.p12
+
+# Google 服务配置文件
+google-services.json
+
+# 日志文件
+*.log
+*.txt
