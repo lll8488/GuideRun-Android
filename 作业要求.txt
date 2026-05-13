@@ -1,0 +1,22 @@
+搭建网络层：使用Retrofit（或Volley/OkHttp），定义一个API接口，包含2-3个方法（GET/POST）。
+
+如果没有后端，可使用公共Mock API（如jsonplaceholder.typicode.com）或本地JSON文件。
+
+搭建数据库层：使用Room，定义Entity、Dao、Database。
+
+实现Repository：作为单一数据源，先从数据库读取，再从网络请求并更新数据库。
+
+编写单元测试：
+
+测试DAO的增删改查（使用@Test + runBlockingTest）
+
+测试Repository中的某个数据转换逻辑
+
+至少3个测试方法，且全部通过（绿色）
+
+检查清单（通过Git统计或CI）：
+
+代码能编译通过
+
+代码中能看到@Dao、@Entity、@GET等注解
+至少有一个Repository类且包含挂起函数或回调（选座）
