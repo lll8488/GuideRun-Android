@@ -44,4 +44,20 @@ interface RunningRecordDao {
 
     @Query("SELECT COUNT(*) FROM running_records")
     suspend fun getRecordCount(): Int
+
+    // --- Phone-based filtering ---
+    @Query("SELECT * FROM running_records WHERE ownerPhone = :phone ORDER BY date DESC")
+    suspend fun getRecordsByOwnerPhone(phone: String): List<RunningRecordEntity>
+
+    @Query("SELECT * FROM running_records WHERE volunteerPhone = :phone AND status = 'accepted' ORDER BY date DESC")
+    suspend fun getAcceptedForVolunteer(phone: String): List<RunningRecordEntity>
+
+    @Query("UPDATE running_records SET status = :status, volunteerPhone = :volunteerPhone, volunteerNote = :note WHERE id = :id")
+    suspend fun acceptDemand(id: Long, status: String, volunteerPhone: String, note: String)
+
+    @Query("UPDATE running_records SET blindConfirmed = 1 WHERE id = :id")
+    suspend fun confirmVolunteer(id: Long)
+
+    @Query("UPDATE running_records SET status = 'cancelled' WHERE id = :id")
+    suspend fun cancelDemand(id: Long)
 }

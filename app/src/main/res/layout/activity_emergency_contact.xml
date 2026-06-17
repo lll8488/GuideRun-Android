@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:text="←"
+            android:textSize="28sp"
+            android:textColor="#333333"
+            android:contentDescription="返回"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:background="@android:color/transparent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="紧急联系人"
+            android:textColor="#E65100"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:contentDescription="紧急联系人设置" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="跑步时可一键拨打（最多3位）"
+            android:textColor="#AAAAAA"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_contact1_name"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="24dp"
+            android:hint="联系人1 姓名"
+            android:textSize="20sp"
+            android:paddingStart="20dp"
+            android:background="@drawable/edit_bg" />
+        <EditText
+            android:id="@+id/et_contact1_phone"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:hint="联系人1 电话"
+            android:inputType="phone"
+            android:textSize="20sp"
+            android:paddingStart="20dp"
+            android:background="@drawable/edit_bg" />
+
+        <EditText
+            android:id="@+id/et_contact2_name"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="20dp"
+            android:hint="联系人2 姓名（选填）"
+            android:textSize="20sp"
+            android:paddingStart="20dp"
+            android:background="@drawable/edit_bg" />
+        <EditText
+            android:id="@+id/et_contact2_phone"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:hint="联系人2 电话（选填）"
+            android:inputType="phone"
+            android:textSize="20sp"
+            android:paddingStart="20dp"
+            android:background="@drawable/edit_bg" />
+
+        <EditText
+            android:id="@+id/et_contact3_name"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="20dp"
+            android:hint="联系人3 姓名（选填）"
+            android:textSize="20sp"
+            android:paddingStart="20dp"
+            android:background="@drawable/edit_bg" />
+        <EditText
+            android:id="@+id/et_contact3_phone"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:hint="联系人3 电话（选填）"
+            android:inputType="phone"
+            android:textSize="20sp"
+            android:paddingStart="20dp"
+            android:background="@drawable/edit_bg" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="36dp"
+            android:text="保存"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_green_round"
+            android:contentDescription="保存按钮"
+            android:minWidth="0dp"
+            android:minHeight="0dp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F5F6FA">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="#0D7C29" android:gravity="center_vertical" android:paddingHorizontal="12dp">
+        <Button android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp"
+            android:text="←" android:textSize="22sp" android:textColor="#FFFFFF"
+            android:contentDescription="返回" android:minWidth="0dp" android:minHeight="0dp"
+            android:background="@android:color/transparent" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="陪跑需求" android:textColor="#FFFFFF"
+            android:textSize="18sp" android:textStyle="bold" android:gravity="center" />
+        <View android:layout_width="48dp" android:layout_height="48dp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView android:layout_width="match_parent"
+        android:layout_height="48dp" android:layout_margin="10dp" android:elevation="1dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto" app:cardCornerRadius="14dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:background="#FFFFFF" android:paddingHorizontal="14dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔍" android:textSize="16sp" android:importantForAccessibility="no" />
+            <EditText android:id="@+id/et_search" android:layout_width="0dp"
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:layout_marginStart="8dp" android:hint="搜索地点关键词"
+                android:textSize="14sp" android:background="@null"
+                android:contentDescription="搜索输入框" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:scrollbars="none" android:paddingVertical="4dp">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:paddingHorizontal="10dp">
+            <TextView android:id="@+id/tag_all" android:layout_width="wrap_content" android:layout_height="36dp"
+                android:text="全部" android:gravity="center" android:paddingHorizontal="16dp"
+                android:textColor="#FFFFFF" android:textSize="14sp" android:clickable="true" android:focusable="true"
+                android:contentDescription="筛选：全部需求" android:background="@drawable/tag_selected" />
+            <TextView android:id="@+id/tag_30min" android:layout_width="wrap_content" android:layout_height="36dp"
+                android:layout_marginStart="6dp" android:text="1-3km" android:gravity="center" android:paddingHorizontal="14dp"
+                android:textColor="#888888" android:textSize="13sp" android:clickable="true" android:focusable="true"
+                android:contentDescription="筛选：1到3公里" android:background="@drawable/tag_normal" />
+            <TextView android:id="@+id/tag_60min" android:layout_width="wrap_content" android:layout_height="36dp"
+                android:layout_marginStart="6dp" android:text="3-5km" android:gravity="center" android:paddingHorizontal="14dp"
+                android:textColor="#888888" android:textSize="13sp" android:clickable="true" android:focusable="true"
+                android:contentDescription="筛选：3到5公里" android:background="@drawable/tag_normal" />
+            <TextView android:id="@+id/tag_90min" android:layout_width="wrap_content" android:layout_height="36dp"
+                android:layout_marginStart="6dp" android:text="5-10km" android:gravity="center" android:paddingHorizontal="14dp"
+                android:textColor="#888888" android:textSize="13sp" android:clickable="true" android:focusable="true"
+                android:contentDescription="筛选：5到10公里" android:background="@drawable/tag_normal" />
+            <TextView android:id="@+id/tag_120min" android:layout_width="wrap_content" android:layout_height="36dp"
+                android:layout_marginStart="6dp" android:text="10km+" android:gravity="center" android:paddingHorizontal="14dp"
+                android:textColor="#888888" android:textSize="13sp" android:clickable="true" android:focusable="true"
+                android:contentDescription="筛选：10公里以上" android:background="@drawable/tag_normal" />
+            <TextView android:id="@+id/tag_distance" android:layout_width="wrap_content" android:layout_height="36dp"
+                android:layout_marginStart="6dp" android:text="按距离" android:gravity="center" android:paddingHorizontal="14dp"
+                android:textColor="#888888" android:textSize="13sp" android:clickable="true" android:focusable="true"
+                android:contentDescription="按距离排序" android:background="@drawable/tag_normal" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView android:id="@+id/tv_exam_status" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="12dp" android:layout_marginHorizontal="10dp"
+        android:background="#FFF3E0" android:textColor="#E65100" android:textSize="13sp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_demands"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:contentDescription="待接单需求列表" android:paddingHorizontal="6dp"
+        android:clipToPadding="false" />
+
+    <TextView android:id="@+id/tv_empty_demands" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:gravity="center"
+        android:text="暂无待接单需求\n下拉刷新或稍后再来" android:textSize="16sp" android:textColor="#8A8D93"
+        android:visibility="gone" />
+</LinearLayout>

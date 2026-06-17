@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:gravity="center"
+        android:text="🎉"
+        android:textSize="40sp"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="跑步完成"
+        android:textColor="#0D7C29"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:contentDescription="跑步完成" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:elevation="2dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="18dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="28dp" android:background="#FFFFFF"
+            android:gravity="center">
+            <TextView android:id="@+id/tv_duration"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="用时：00:00:00" android:textSize="28sp" android:textStyle="bold"
+                android:textColor="#1A1A2E" android:contentDescription="跑步用时" />
+            <TextView android:id="@+id/tv_distance"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:text="距离：0.00 km"
+                android:textSize="20sp" android:textColor="#8A8D93"
+                android:contentDescription="跑步距离" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button android:id="@+id/btn_view_record"
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:layout_marginTop="32dp" android:text="查看记录"
+        android:textSize="18sp" android:textStyle="bold" android:textColor="#FFFFFF"
+        android:background="@drawable/btn_green_round"
+        android:contentDescription="查看跑步记录按钮" android:minWidth="0dp" android:minHeight="0dp" />
+
+    <Button android:id="@+id/btn_share"
+        android:layout_width="match_parent" android:layout_height="48dp"
+        android:layout_marginTop="12dp" android:text="📤 分享跑步结果"
+        android:textSize="15sp" android:textColor="#555555"
+        android:background="@drawable/btn_light_round"
+        android:contentDescription="分享跑步结果" android:minWidth="0dp" android:minHeight="0dp" />
+
+    <Button android:id="@+id/btn_back_home"
+        android:layout_width="match_parent" android:layout_height="48dp"
+        android:layout_marginTop="8dp" android:text="返回首页"
+        android:textSize="15sp" android:textColor="#0D7C29"
+        android:background="@drawable/btn_outline_round"
+        android:contentDescription="返回首页按钮" android:minWidth="0dp" android:minHeight="0dp" />
+</LinearLayout>

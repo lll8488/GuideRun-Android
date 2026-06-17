@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"f:/Desktop/claudecode/app/src/main/java/com/blindrunner/app/ui/splash\" \"f:/Desktop/claudecode/app/src/main/java/com/blindrunner/app/ui/auth\" \"f:/Desktop/claudecode/app/src/main/java/com/blindrunner/app/ui/blind\" \"f:/Desktop/claudecode/app/src/main/java/com/blindrunner/app/ui/volunteer\" \"f:/Desktop/claudecode/app/src/main/res/drawable\" \"f:/Desktop/claudecode/app/src/main/res/layout\")",
+      "Bash(\"C:/Program Files/Android/Android Studio/jbr/bin/keytool.exe\" -list -v -keystore \"C:/Users/XD/.android/debug.keystore\" -storepass android -alias androiddebugkey)",
+      "Bash(./gradlew signingReport)"
+    ],
+    "additionalDirectories": [
+      "f:\\Desktop\\claudecode\\app\\src\\main\\java\\com\\blindrunner\\app\\ui"
+    ]
+  }
+}

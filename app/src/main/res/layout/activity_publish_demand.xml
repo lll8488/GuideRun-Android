@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+            <Button android:id="@+id/btn_back"
+                android:layout_width="48dp" android:layout_height="48dp"
+                android:text="←" android:textSize="24sp" android:textColor="#1A1A2E"
+                android:contentDescription="返回" android:minWidth="0dp" android:minHeight="0dp"
+                android:background="@android:color/transparent" />
+            <TextView
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="8dp"
+                android:text="发布陪跑需求" android:textColor="#1A1A2E"
+                android:textSize="26sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:elevation="2dp" xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:cardCornerRadius="18dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp" android:background="#FFFFFF">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="跑步日期" android:textColor="#555555" android:textSize="16sp"
+                    android:textStyle="bold" />
+                <Button android:id="@+id/btn_date"
+                    android:layout_width="match_parent" android:layout_height="56dp"
+                    android:layout_marginTop="6dp" android:text="点击选择日期"
+                    android:textSize="16sp" android:textColor="#1A1A2E"
+                    android:gravity="start|center_vertical" android:paddingStart="16dp"
+                    android:background="@drawable/edit_bg"
+                    android:contentDescription="选择跑步日期" android:minWidth="0dp" android:minHeight="0dp" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:text="开始时间"
+                    android:textColor="#555555" android:textSize="16sp" android:textStyle="bold" />
+                <Button android:id="@+id/btn_time"
+                    android:layout_width="match_parent" android:layout_height="56dp"
+                    android:layout_marginTop="6dp" android:text="点击选择时间"
+                    android:textSize="16sp" android:textColor="#1A1A2E"
+                    android:gravity="start|center_vertical" android:paddingStart="16dp"
+                    android:background="@drawable/edit_bg"
+                    android:contentDescription="选择开始时间" android:minWidth="0dp" android:minHeight="0dp" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:text="跑步地点"
+                    android:textColor="#555555" android:textSize="16sp" android:textStyle="bold" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+                    android:layout_marginTop="6dp" android:orientation="horizontal">
+                    <EditText android:id="@+id/et_location"
+                        android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                        android:hint="输入地址或地标名称" android:textSize="16sp" android:paddingStart="16dp"
+                        android:contentDescription="跑步地点输入框" android:background="@drawable/edit_bg" />
+                    <Button android:id="@+id/btn_search_address"
+                        android:layout_width="52dp" android:layout_height="match_parent"
+                        android:layout_marginStart="8dp" android:text="🔍" android:textSize="20sp"
+                        android:contentDescription="搜索地址" android:minWidth="0dp" android:minHeight="0dp"
+                        android:background="@drawable/btn_light_round" />
+                </LinearLayout>
+                <Button android:id="@+id/btn_map_pick"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:layout_marginTop="8dp" android:text="🗺 地图选点"
+                    android:textSize="15sp" android:textColor="#0D7C29"
+                    android:background="@drawable/btn_outline_round" android:minWidth="0dp" android:minHeight="0dp" />
+
+                <TextView android:id="@+id/tv_frequent_title"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" android:text="常用地址"
+                    android:textColor="#8A8D93" android:textSize="13sp" android:visibility="gone" />
+                <LinearLayout android:id="@+id/ll_frequent_addresses"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:visibility="gone" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp" android:text="预计距离"
+                    android:textColor="#555555" android:textSize="18sp" android:textStyle="bold"
+                    android:contentDescription="预计跑步距离，请选择一个区间" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" android:orientation="horizontal">
+                    <Button android:id="@+id/btn_dist_1_3"
+                        android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1"
+                        android:layout_marginEnd="3dp" android:text="1-3km" android:textSize="18sp"
+                        android:textStyle="bold" android:textColor="#FFFFFF"
+                        android:background="@drawable/btn_green_round"
+                        android:contentDescription="1到3公里" android:minWidth="0dp" android:minHeight="0dp" />
+                    <Button android:id="@+id/btn_dist_3_5"
+                        android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1"
+                        android:layout_marginHorizontal="3dp" android:text="3-5km" android:textSize="18sp"
+                        android:textStyle="bold" android:textColor="#333333"
+                        android:background="@drawable/btn_light_round"
+                        android:contentDescription="3到5公里" android:minWidth="0dp" android:minHeight="0dp" />
+                    <Button android:id="@+id/btn_dist_5_10"
+                        android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1"
+                        android:layout_marginStart="3dp" android:text="5-10km" android:textSize="18sp"
+                        android:textStyle="bold" android:textColor="#333333"
+                        android:background="@drawable/btn_light_round"
+                        android:contentDescription="5到10公里" android:minWidth="0dp" android:minHeight="0dp" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" android:orientation="horizontal">
+                    <Button android:id="@+id/btn_dist_10_15"
+                        android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1"
+                        android:layout_marginEnd="3dp" android:text="10-15km" android:textSize="18sp"
+                        android:textStyle="bold" android:textColor="#333333"
+                        android:background="@drawable/btn_light_round"
+                        android:contentDescription="10到15公里" android:minWidth="0dp" android:minHeight="0dp" />
+                    <Button android:id="@+id/btn_dist_15_20"
+                        android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1"
+                        android:layout_marginHorizontal="3dp" android:text="15-20km" android:textSize="18sp"
+                        android:textStyle="bold" android:textColor="#333333"
+                        android:background="@drawable/btn_light_round"
+                        android:contentDescription="15到20公里" android:minWidth="0dp" android:minHeight="0dp" />
+                    <Button android:id="@+id/btn_dist_20_plus"
+                        android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1"
+                        android:layout_marginStart="3dp" android:text="20km+" android:textSize="18sp"
+                        android:textStyle="bold" android:textColor="#333333"
+                        android:background="@drawable/btn_light_round"
+                        android:contentDescription="20公里以上" android:minWidth="0dp" android:minHeight="0dp" />
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:text="🏷 陪跑模式：陪跑绳引导模式"
+                    android:textSize="16sp" android:textColor="#0D7C29" android:textStyle="bold"
+                    android:contentDescription="陪跑模式固定为陪跑绳引导模式" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:text="特殊备注（选填）"
+                    android:textColor="#555555" android:textSize="16sp" android:textStyle="bold" />
+                <EditText android:id="@+id/et_note"
+                    android:layout_width="match_parent" android:layout_height="76dp"
+                    android:layout_marginTop="6dp" android:hint="可填写特殊需求，如无障碍设施等"
+                    android:gravity="top|start" android:textSize="15sp"
+                    android:padding="14dp" android:background="@drawable/edit_bg" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button android:id="@+id/btn_submit"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:layout_marginTop="20dp" android:layout_marginBottom="20dp"
+            android:text="发布需求" android:textSize="19sp"
+            android:textStyle="bold" android:textColor="#FFFFFF"
+            android:background="@drawable/btn_green_round"
+            android:contentDescription="发布需求按钮" android:minWidth="0dp" android:minHeight="0dp" />
+    </LinearLayout>
+</ScrollView>

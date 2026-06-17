@@ -24,4 +24,16 @@ interface UserDao {
 
     @Query("SELECT * FROM users WHERE userType = :userType")
     suspend fun getUsersByType(userType: String): List<UserEntity>
+
+    @Query("UPDATE users SET rating = :rating, ratingCount = :count WHERE phone = :phone")
+    suspend fun updateRating(phone: String, rating: Float, count: Int)
+
+    @Query("UPDATE users SET totalRuns = totalRuns + 1, totalDistanceKm = totalDistanceKm + :dist WHERE phone = :phone")
+    suspend fun incrementRunStats(phone: String, dist: Float)
+
+    @Query("UPDATE users SET examPassed = :passed, examScore = :score WHERE phone = :phone")
+    suspend fun updateExamResult(phone: String, passed: Boolean, score: Int)
+
+    @Query("SELECT * FROM users WHERE userType = 'volunteer' ORDER BY totalRuns DESC")
+    suspend fun getVolunteerLeaderboard(): List<UserEntity>
 }

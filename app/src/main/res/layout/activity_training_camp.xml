@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F5F6FA">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="#0D7C29" android:gravity="center_vertical" android:paddingHorizontal="12dp">
+        <Button android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp"
+            android:text="←" android:textSize="22sp" android:textColor="#FFFFFF"
+            android:contentDescription="返回" android:minWidth="0dp" android:minHeight="0dp"
+            android:background="@android:color/transparent" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="陪跑训练营" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"
+            android:gravity="center" />
+        <View android:layout_width="48dp" android:layout_height="48dp" />
+    </LinearLayout>
+
+    <TextView android:id="@+id/tv_exam_status" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="14dp" android:layout_margin="12dp"
+        android:text="考核状态：未通过，请完成所有课程后参加考核" android:textSize="14sp"
+        android:background="#FFFFFF" android:textColor="#E65100" android:elevation="1dp" />
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:paddingHorizontal="12dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" android:text="4节陪跑绳规范课程"
+                android:textSize="15sp" android:textStyle="bold" android:textColor="#1A1A2E" />
+
+            <Button android:id="@+id/btn_course1" android:layout_width="match_parent"
+                android:layout_height="68dp" android:layout_marginBottom="8dp"
+                android:text="第1节  陪跑绳的标准长度与正确握持方式" android:textSize="15sp"
+                android:gravity="start|center_vertical" android:paddingHorizontal="18dp"
+                android:background="@drawable/btn_light_round" android:minWidth="0dp" android:minHeight="0dp" />
+            <Button android:id="@+id/btn_course2" android:layout_width="match_parent"
+                android:layout_height="68dp" android:layout_marginBottom="8dp"
+                android:text="第2节  方向引导的力度控制与标准化口令" android:textSize="15sp"
+                android:gravity="start|center_vertical" android:paddingHorizontal="18dp"
+                android:background="@drawable/btn_light_round" android:minWidth="0dp" android:minHeight="0dp" />
+            <Button android:id="@+id/btn_course3" android:layout_width="match_parent"
+                android:layout_height="68dp" android:layout_marginBottom="8dp"
+                android:text="第3节  转弯、避让障碍、启停的标准流程" android:textSize="15sp"
+                android:gravity="start|center_vertical" android:paddingHorizontal="18dp"
+                android:background="@drawable/btn_light_round" android:minWidth="0dp" android:minHeight="0dp" />
+            <Button android:id="@+id/btn_course4" android:layout_width="match_parent"
+                android:layout_height="68dp" android:layout_marginBottom="8dp"
+                android:text="第4节  突发情况应急处理与沟通注意事项" android:textSize="15sp"
+                android:gravity="start|center_vertical" android:paddingHorizontal="18dp"
+                android:background="@drawable/btn_light_round" android:minWidth="0dp" android:minHeight="0dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button android:id="@+id/btn_exam" android:layout_width="match_parent"
+        android:layout_height="56dp" android:layout_margin="12dp"
+        android:text="开始考核（10道判断题）" android:textSize="17sp" android:textStyle="bold"
+        android:textColor="#FFFFFF" android:background="@drawable/btn_green_round"
+        android:minWidth="0dp" android:minHeight="0dp" />
+</LinearLayout>

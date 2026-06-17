@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 高德地图 -->
+    <com.amap.api.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 中心定位标记 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:text="📍"
+        android:textSize="36sp"
+        android:gravity="center"
+        android:contentDescription="地图中心点，拖动地图可调整位置" />
+
+    <!-- 底部信息栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#F0FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:background="@drawable/btn_light_round"
+            android:paddingHorizontal="12dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/tv_address"
+                android:text="拖动地图选择位置"
+                android:textSize="15sp"
+                android:textColor="#333333"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:contentDescription="已选位置" />
+
+            <Button
+                android:id="@+id/btn_location_me"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="◎"
+                android:textSize="20sp"
+                android:textColor="#1B5E20"
+                android:background="@android:color/transparent"
+                android:contentDescription="定位到我当前的位置"
+                android:minWidth="0dp"
+                android:minHeight="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="确认此位置"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_green_round"
+                android:contentDescription="确认此位置按钮"
+                android:minWidth="0dp"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:text="取消"
+                android:textSize="17sp"
+                android:textColor="#1B5E20"
+                android:background="@drawable/btn_outline_round"
+                android:contentDescription="取消按钮"
+                android:minWidth="0dp"
+                android:minHeight="48dp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

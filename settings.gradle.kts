@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "BlindRunner"
 include(":app")
+// include(":server")  // 后端独立运行：cd server && gradlew run
