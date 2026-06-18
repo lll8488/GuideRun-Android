@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#0D7C29">
+
+    <!-- 品牌图标 -->
+    <View
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:background="@drawable/btn_hc_bg"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="助盲跑"
+        android:textColor="#FFFFFF"
+        android:textSize="44sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.08"
+        android:contentDescription="助盲跑" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="让每一次奔跑都有陪伴"
+        android:textColor="#B7E4C7"
+        android:textSize="16sp"
+        android:letterSpacing="0.04" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="安全 · 专业 · 简单 · 无障碍"
+        android:textColor="#95D5A5"
+        android:textSize="13sp"
+        android:letterSpacing="0.06"
+        android:contentDescription="安全，专业，简单，无障碍" />
+</LinearLayout>

@@ -1,0 +1,164 @@
+Repository Pattern 安卓简易教程
+1. 为什么需要 Repository？一个真实场景
+想象你的应用需要显示书籍列表：
+• 数据可能来自云端 API（Retrofit）
+• 也可能来自本地数据库（Room）
+• 未来还可能来自缓存文件
+如果不使用 Repository，你的 ViewModel 代码会像这样：
+kotlin
+// ❌ 不好的做法：ViewModel 直接操作数据源
+class BookViewModel : ViewModel() {
+ fun getBooks() {
+ // 混杂了 Retrofit 创建、请求逻辑
+ val api = Retrofit.Builder().baseUrl("...").build()
+ val books = api.create(BookApi::class.java).getBooks()
+ // 还要自己处理线程、错误、缓存...
+ }
+}
+问题：
+• ViewModel 变得臃肿，难以测试
+• 换数据源（比如从 API 换成 Room）要改 ViewModel 代码
+• 多处重复的网络请求/数据库代码
+2. Repository 模式的核心思想
+“创建一个中间层，封装所有数据访问细节。界面层（ViewModel/Activity）只需要问
+Repository 要数据，不用关心数据从哪里来。”
+这正是文章提到的单一真相来源（Single Source of Truth）原则——所有数据访问都通
+过同一个出口。
+3. 三步实现 Repository
+第 1 步：定义数据源接口（API + DAO）
+kotlin
+// 云端 API 接口
+interface BookApi {
+ @GET("books")
+ suspend fun getBooks(): List<Book>
+ 
+ @GET("books/{id}")
+ suspend fun getBook(@Path("id") id: Int): Book
+}
+// 本地 DAO 接口（Room）
+@Dao
+interface BookDao {
+ @Query("SELECT * FROM books")
+ suspend fun getAll(): List<Book>
+ 
+ @Insert
+ suspend fun insertAll(books: List<Book>)
+}
+第 2 步：创建 Repository 类
+kotlin
+// 仓库类：统一管理数据来源
+class BookRepository private constructor(
+ private val bookApi: BookApi,
+ private val bookDao: BookDao
+) {
+ // 获取数据：先尝试本地，失败或需要刷新时再从网络获取
+ suspend fun getBooks(forceRefresh: Boolean = false): List<Book> {
+ return if (forceRefresh) {
+ // 强制从网络获取并更新本地
+ val remoteBooks = bookApi.getBooks()
+ bookDao.insertAll(remoteBooks)
+ remoteBooks
+ } else {
+ // 先从本地读取
+ val localBooks = bookDao.getAll()
+ if (localBooks.isNotEmpty()) {
+ localBooks
+ } else {
+ val remoteBooks = bookApi.getBooks()
+ bookDao.insertAll(remoteBooks)
+ remoteBooks
+ }
+ }
+ }
+ 
+ // 获取单本书详情
+ suspend fun getBook(id: Int): Book {
+ // 可以扩展：先看本地缓存，没有再请求网络
+ return bookApi.getBook(id)
+ }
+ 
+ companion object {
+ // 单例模式（简化版依赖注入）
+ @Volatile
+ private var INSTANCE: BookRepository? = null
+ 
+ fun getInstance(bookApi: BookApi, bookDao: BookDao): BookRepository {
+ return INSTANCE ?: synchronized(this) {
+ INSTANCE ?: BookRepository(bookApi, bookDao).also { INSTANCE 
+= it }
+ }
+ }
+ }
+}
+第 3 步：在 ViewModel 中使用 Repository
+kotlin
+class BookViewModel(
+ private val repository: BookRepository
+) : ViewModel() {
+ 
+ val books = liveData(Dispatchers.IO) {
+ // 自动在后台线程执行，emit 到主线程
+ val bookList = repository.getBooks()
+ emit(bookList)
+ }
+ 
+ fun refresh() {
+ viewModelScope.launch {
+ repository.getBooks(forceRefresh = true)
+ }
+ }
+}
+4. 完整的使用流程（从 Activity 开始）
+kotlin
+// 1. 在 Application 或全局单例中初始化数据源
+object AppContainer {
+ private val retrofit = Retrofit.Builder()
+ .baseUrl("https://your-api.com/")
+ .addConverterFactory(GsonConverterFactory.create())
+ .build()
+ 
+ val bookApi: BookApi = retrofit.create(BookApi::class.java)
+ val bookDao: BookDao = AppDatabase.getInstance().bookDao()
+ val bookRepository = BookRepository.getInstance(bookApi, bookDao)
+}
+// 2. 在 Activity/Fragment 中创建 ViewModel
+class MainActivity : AppCompatActivity() {
+ private val viewModel: BookViewModel by viewModels {
+ object : ViewModelProvider.Factory {
+ override fun <T : ViewModel> create(modelClass: Class<T>): T {
+ return BookViewModel(AppContainer.bookRepository) as T
+ }
+ }
+ }
+ 
+ override fun onCreate(savedInstanceState: Bundle?) {
+ super.onCreate(savedInstanceState)
+ viewModel.books.observe(this) { books ->
+ // 更新 UI
+ }
+ }
+}
+5. 常见问题与解答
+问题 回答
+Repository 必须同时有本地和
+网络吗？
+不一定。如果功能不需要本地缓存，可以只有网络。但推
+荐都写上，便于扩展。
+每个页面都要建一个
+Repository 吗？
+按数据主题划分，比如 UserRepository 负责所有用户数
+据，多个页面共用。
+如何在 Repository 中切换线
+程？
+使用 suspend 函数，调用方（ViewModel）负责指定协程
+作用域。
+单例 Repository 会不会导致
+测试困难？
+会有一点。但课程项目中可以接受；进阶可使用依赖注入
+（如 Hilt）。
+6. 快速检查清单
+• Repository 类不依赖任何 Android 特定类（Context 等）
+• Repository 的方法都是用 suspend 标记的
+• Repository 内部不会直接操作 UI 或 LiveData
+• 项目中至少有一个 Repository 同时使用了 Room 和 Retrofit
+• ViewModel 的构造函数接收 Repository 作为参数

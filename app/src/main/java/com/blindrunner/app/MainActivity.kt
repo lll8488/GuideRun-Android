@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         // Quick verification: log API response to prove Retrofit works
         lifecycleScope.launch {
             try {
-                val posts = RetrofitClient.apiService.getPosts()
+                val posts = RetrofitClient.getApiService().getPosts()
                 Log.d("RetrofitVerify", "API returned ${posts.size} posts. First: ${posts.first().title}")
             } catch (e: Exception) {
                 Log.e("RetrofitVerify", "API call failed", e)

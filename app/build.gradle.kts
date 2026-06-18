@@ -36,12 +36,22 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    // AMap SDK .so 未做 16KB 页对齐，用传统打包方式兼容
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
 }
 
 dependencies {
     // Core Android
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 
     // Room
@@ -58,8 +68,16 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    // AMap (高德地图) SDK
+    implementation("com.amap.api:3dmap:10.0.600")
+
     // Gson
     implementation("com.google.code.gson:gson:2.10.1")
+
+    // GraphView — PRD 4.5 跑步时长折线图
+    implementation("com.jjoe64:graphview:4.2.2") {
+        exclude(group = "com.android.support")
+    }
 
     // Unit Testing (JVM)
     testImplementation("junit:junit:4.13.2")

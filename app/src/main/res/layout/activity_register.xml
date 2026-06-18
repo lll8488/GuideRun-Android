@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp">
+
+        <Button android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp"
+            android:text="←" android:textSize="24sp" android:textColor="#1A1A2E"
+            android:contentDescription="返回登录页" android:minWidth="0dp" android:minHeight="0dp"
+            android:background="@android:color/transparent" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="注册新账号"
+            android:textColor="#1A1A2E" android:textSize="28sp" android:textStyle="bold" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" android:layout_marginBottom="28dp"
+            android:text="手机号 + 验证码即可完成注册" android:textColor="#8A8D93" android:textSize="15sp" />
+
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:elevation="2dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto" app:cardCornerRadius="18dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp" android:background="#FFFFFF">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="手机号" android:textColor="#1A1A2E"
+                    android:textSize="18sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp" android:text="请输入11位手机号"
+                    android:textColor="#8A8D93" android:textSize="13sp" />
+                <EditText android:id="@+id/et_phone" android:layout_width="match_parent"
+                    android:layout_height="56dp" android:layout_marginTop="10dp"
+                    android:hint="手机号码" android:inputType="phone" android:maxLength="11"
+                    android:contentDescription="手机号输入框" android:textSize="18sp"
+                    android:paddingStart="16dp" android:background="@drawable/edit_bg" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp" android:text="验证码"
+                    android:textColor="#1A1A2E" android:textSize="18sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp" android:text="点击获取验证码后输入6位数字"
+                    android:textColor="#8A8D93" android:textSize="13sp" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+                    android:layout_marginTop="10dp" android:orientation="horizontal">
+                    <EditText android:id="@+id/et_code" android:layout_width="0dp"
+                        android:layout_height="match_parent" android:layout_weight="1"
+                        android:hint="6位验证码" android:inputType="number" android:maxLength="6"
+                        android:contentDescription="验证码输入框" android:textSize="18sp"
+                        android:paddingStart="16dp" android:background="@drawable/edit_bg" />
+                    <Button android:id="@+id/btn_get_code"
+                        android:layout_width="wrap_content" android:layout_height="match_parent"
+                        android:layout_marginStart="10dp" android:text="获取验证码"
+                        android:textSize="14sp" android:textStyle="bold" android:textColor="#FFFFFF"
+                        android:background="@drawable/btn_green_round"
+                        android:contentDescription="获取验证码按钮"
+                        android:minWidth="0dp" android:minHeight="0dp"
+                        android:paddingHorizontal="14dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button android:id="@+id/btn_next" android:layout_width="match_parent"
+            android:layout_height="60dp" android:layout_marginTop="24dp"
+            android:text="下一步：选择身份" android:textSize="18sp" android:textStyle="bold"
+            android:textColor="#FFFFFF" android:contentDescription="下一步选择身份按钮"
+            android:minWidth="0dp" android:minHeight="0dp" android:background="@drawable/btn_green_round" />
+    </LinearLayout>
+</ScrollView>

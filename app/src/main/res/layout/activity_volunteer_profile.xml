@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="←"
+            android:textSize="22sp"
+            android:textColor="#333333"
+            android:contentDescription="返回"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:background="@android:color/transparent" />
+
+        <!-- 头像区 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:text="👤"
+                android:textSize="36sp"
+                android:gravity="center"
+                android:background="#E8F5E9"
+                android:clickable="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="志愿者"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+        </LinearLayout>
+
+        <!-- 考核状态卡片 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            app:cardCornerRadius="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:background="#FFFFFF">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📝"
+                    android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/tv_exam_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="考核状态：未通过"
+                    android:textSize="15sp"
+                    android:textColor="#E65100" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 编辑信息 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="10dp"
+            android:text="个人信息"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#333333" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="姓名"
+            android:textSize="16sp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edit_bg" />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:hint="联系方式"
+            android:inputType="phone"
+            android:textSize="16sp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edit_bg" />
+
+        <!-- 回看训练营 -->
+        <Button
+            android:id="@+id/btn_training"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:text="回看陪跑训练营"
+            android:textSize="16sp"
+            android:textColor="#1B5E20"
+            android:background="@drawable/btn_outline_round"
+            android:minWidth="0dp" android:minHeight="0dp" />
+
+        <!-- 保存 -->
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:text="保存"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_green_round"
+            android:minWidth="0dp" android:minHeight="0dp" />
+
+        <!-- 切换身份 -->
+        <Button
+            android:id="@+id/btn_switch"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:text="切换到视障用户身份"
+            android:textSize="15sp"
+            android:textColor="#8A8D93"
+            android:background="@android:color/transparent"
+            android:minWidth="0dp" android:minHeight="0dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="#F0F0F0"
+            android:importantForAccessibility="no" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:text="退出登录"
+            android:textSize="15sp"
+            android:textColor="#D32F2F"
+            android:background="@drawable/btn_outline_round"
+            android:contentDescription="退出登录按钮"
+            android:minWidth="0dp" android:minHeight="0dp" />
+    </LinearLayout>
+</ScrollView>

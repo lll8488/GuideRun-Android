@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F5F6FA">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="#0D7C29" android:gravity="center_vertical" android:paddingHorizontal="12dp">
+        <Button android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp"
+            android:text="←" android:textSize="22sp" android:textColor="#FFFFFF"
+            android:contentDescription="返回" android:minWidth="0dp" android:minHeight="0dp"
+            android:background="@android:color/transparent" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="历史记录" android:textColor="#FFFFFF" android:textSize="20sp" android:textStyle="bold"
+            android:gravity="center" />
+        <View android:layout_width="48dp" android:layout_height="48dp" />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:padding="12dp">
+        <Button android:id="@+id/btn_start_date" android:layout_width="0dp" android:layout_height="48dp"
+            android:layout_weight="1" android:text="开始日期" android:textSize="15sp"
+            android:background="@drawable/btn_light_round" android:minWidth="0dp" android:minHeight="0dp" />
+        <TextView android:layout_width="wrap_content" android:layout_height="48dp"
+            android:gravity="center" android:text="至" android:textSize="16sp" android:paddingHorizontal="8dp" />
+        <Button android:id="@+id/btn_end_date" android:layout_width="0dp" android:layout_height="48dp"
+            android:layout_weight="1" android:text="结束日期" android:textSize="15sp"
+            android:background="@drawable/btn_light_round" android:minWidth="0dp" android:minHeight="0dp" />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:padding="16dp" android:background="#E8F5E9"
+        android:layout_marginHorizontal="12dp">
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="总次数" android:textSize="14sp" android:textColor="#2E7D32" />
+            <TextView android:id="@+id/tv_total_count" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="--"
+                android:textSize="24sp" android:textStyle="bold" android:textColor="#0D7C29" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="总时长" android:textSize="14sp" android:textColor="#2E7D32" />
+            <TextView android:id="@+id/tv_total_duration" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="--"
+                android:textSize="24sp" android:textStyle="bold" android:textColor="#0D7C29" />
+        </LinearLayout>
+        <Button android:id="@+id/btn_statistics" android:layout_width="48dp" android:layout_height="48dp"
+            android:text="📊" android:textSize="22sp" android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent" android:contentDescription="查看统计图"
+            android:minWidth="0dp" android:minHeight="0dp" />
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_history"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:contentDescription="跑步历史记录列表" android:padding="8dp" />
+            <TextView android:id="@+id/tv_empty_history" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_gravity="center"
+                android:text="暂无跑步记录" android:textColor="#8A8D93" android:textSize="16sp"
+                android:gravity="center" android:visibility="gone" />
+        </FrameLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

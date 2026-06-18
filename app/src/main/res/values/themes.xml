@@ -1,8 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.BlindRunner" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#1B5E20</item>
-        <item name="colorPrimaryDark">#0D3B0F</item>
-        <item name="colorAccent">#4CAF50</item>
+    <!--
+      助盲跑 Design System
+      Primary Green: #0D7C29  — 信任感 + 活力
+      Accent Orange: #FF6B35  — 温暖 + 紧急操作
+      Text Dark:     #1A1A2E  — 高对比度
+      Surface:       #FFFFFF  — 干净留白
+      Background:    #F5F6FA  — 柔和底色
+    -->
+
+    <!-- === 默认主题（浅色） === -->
+    <style name="Theme.BlindRunner" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#0D7C29</item>
+        <item name="colorPrimaryDark">#095A1E</item>
+        <item name="colorAccent">#FF6B35</item>
+        <item name="colorControlNormal">#0D7C29</item>
+        <item name="colorControlActivated">#FF6B35</item>
+        <item name="android:windowBackground">#F5F6FA</item>
+        <item name="android:textColor">#1A1A2E</item>
+        <item name="android:textColorPrimary">#1A1A2E</item>
+        <item name="android:textColorSecondary">#5F6368</item>
+        <item name="android:statusBarColor">#095A1E</item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- === 高对比度黑白主题（无障碍） === -->
+    <style name="Theme.BlindRunner.HighContrast" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#000000</item>
+        <item name="colorControlNormal">#000000</item>
+        <item name="colorControlActivated">#000000</item>
+        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="android:textColorSecondary">#333333</item>
+        <item name="android:editTextColor">#000000</item>
+        <item name="android:editTextBackground">@drawable/edit_bg</item>
+        <item name="android:textColorHint">#555555</item>
+        <item name="android:buttonStyle">@style/HCButton</item>
+        <item name="editTextStyle">@style/HCEditText</item>
+        <item name="alertDialogTheme">@style/HCAlertDialog</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <!-- === 跑步模式主题（暗色，省电 + 户外可视） === -->
+    <style name="Theme.BlindRunner.Running" parent="Theme.BlindRunner">
+        <item name="android:windowBackground">#0D0D0D</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#0D0D0D</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- === 高对比度组件样式 === -->
+    <style name="HCButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/btn_hc_bg</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+    </style>
+
+    <style name="HCEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edit_bg</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textColorHint">#444444</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="HCAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="colorAccent">#000000</item>
     </style>
 </resources>
