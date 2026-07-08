@@ -18,6 +18,10 @@ import com.blindrunner.app.R
 import com.blindrunner.app.ui.blind.RunningModeActivity
 import com.blindrunner.app.util.AppPrefs
 
+/**
+ * 跑步前台Service，维持跑步过程中的计时和GPS轨迹记录
+ * 通过startForeground保活，防止被系统杀死
+ */
 class RunningService : Service() {
 
     private val binder = RunningBinder()
