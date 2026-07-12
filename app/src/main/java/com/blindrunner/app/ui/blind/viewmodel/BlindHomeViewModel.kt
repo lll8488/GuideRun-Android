@@ -9,6 +9,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * 视障首页ViewModel，管理陪跑需求列表的显示
+ */
 class BlindHomeViewModel : ViewModel() {
 
     private val _demands = MutableStateFlow<List<RunningRecord>>(emptyList())

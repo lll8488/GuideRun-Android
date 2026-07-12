@@ -10,6 +10,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * 主页面ViewModel，管理跑步记录列表的加载和刷新
+ */
 class MainViewModel(
     private val repository: RunningRepository
 ) : ViewModel() {
@@ -24,6 +27,7 @@ class MainViewModel(
         loadRecords()
     }
 
+    /** 加载跑步记录 */
     fun loadRecords() {
         viewModelScope.launch {
             _isLoading.value = true
@@ -39,6 +43,7 @@ class MainViewModel(
         }
     }
 
+    /** 强制刷新数据 */
     fun refresh() {
         viewModelScope.launch {
             _isLoading.value = true

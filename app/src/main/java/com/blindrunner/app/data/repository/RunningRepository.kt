@@ -9,6 +9,10 @@ import com.blindrunner.app.domain.model.RunningRecord
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+/**
+ * 数据仓库，统一管理跑步记录的本地数据库和远程API访问
+ * 采用本地优先策略，本地没有再走网络
+ */
 class RunningRepository(
     private val runningRecordDao: RunningRecordDao,
     private val apiService: ApiService

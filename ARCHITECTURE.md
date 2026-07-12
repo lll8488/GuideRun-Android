@@ -175,27 +175,19 @@ MVVM 的核心优势：**ViewModel 的生命周期比 Activity 长**，转屏时
 
 ---
 
-## 五、关键设计决策
+## 五、一些设计选择
 
-### 5.1 为什么不用 Jetpack Compose？
+### 为什么用 XML 而不是 Jetpack Compose？
 
-MVP 阶段选择了 XML 布局——因为：
-1. 学习成本低，团队两人都熟悉 XML
-2. 高德地图 SDK 的 MapView 只有 XML 版本，Compose 需要 `AndroidView` 包裹
-3. AccessibilityService 等系统组件需要 XML 配置
+主要是高德地图 SDK 的 MapView 只支持 XML，而且当时团队对 XML 更熟悉，开发效率更高。Compose 后续可以考虑重构。
 
-Compose 适合后续重构——声明式 UI 的无障碍适配更简洁（`semantics { contentDescription = "..." }`）。
+### 为什么用 Room 而不是 DataStore？
 
-### 5.2 为什么用 Room 而不是 DataStore？
+Room 管结构化数据（跑步记录、用户信息），需要排序筛选。DataStore 本质上就是 SharedPreferences 升级版，管键值对（设置项），各司其职。
 
-Room（SQLite）用于结构化数据（跑步记录、用户档案），需要排序/筛选/聚合。
-DataStore 是 SharedPreferences 的升级替代，适合键值对数据（设置项、token）。
+### 验证码为什么是模拟的？
 
-### 5.3 为什么验证码是模拟的？
-
-MVP 阶段没有接入真实短信服务（阿里云/腾讯云 SMS）。
-登录时生成随机6位数字存 SharedPreferences，校验通过即登录成功。
-生产环境替换为：生成验证码 → POST 短信API → 等待用户输入 → 校验。
+没接入短信服务（阿里云/腾讯云 SMS 要钱），直接随机生成 6 位数字存本地，输入匹配就通过。上线的话换成真实短信接口就行。
 
 ---
 
